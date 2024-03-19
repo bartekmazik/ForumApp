@@ -1,11 +1,21 @@
 import React from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
 
-function Navbar() {
+function Navbars() {
   return (
-    <div className="d-flex w-100 bg-secondary justify-content-center">
-      Navbar
-    </div>
+    <Navbar className="bg-secondary">
+      <Container>
+        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            Signed in as: <a href="#login">Mark Otto</a>
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default Navbars;

@@ -5,6 +5,7 @@ function SearchBar() {
     <div>
       <form className="rounded">
         <input placeholder="Search" className="mt-3 rounded"></input>
+        <button>filter</button>
       </form>
     </div>
   );
