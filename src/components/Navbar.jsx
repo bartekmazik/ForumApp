@@ -1,21 +1,50 @@
 import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-
-function Navbars() {
+function ProfileDropdown() {
   return (
-    <Navbar className="bg-secondary">
-      <Container>
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
-          </Navbar.Text>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      <div className="dropdown my-2">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img src="src/assets/avatar.svg" width={"32px"} height={"32px"} />
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="#">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Login
+            </a>
+          </li>
+        </ul>
+      </div>
+    </>
   );
 }
 
-export default Navbars;
+function Navbar() {
+  return (
+    <>
+      <div className="d-flex justify-content-between px-2 align-items-center w-10 bg-secondary">
+        <img
+          src="src/assets/logo.svg"
+          height={"32px"}
+          className="mx-2"
+          onClick={() => {
+            console.log("im logo");
+          }}
+          //fill={"transparent"}
+        />
+        <ProfileDropdown />
+      </div>
+    </>
+  );
+}
+
+export default Navbar;
