@@ -4,21 +4,21 @@ function ProfileDropdown() {
     <>
       <div className="dropdown my-2">
         <button
-          class="btn btn-secondary dropdown-toggle"
+          className="btn btn-secondary dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           <img src="src/assets/avatar.svg" width={"32px"} height={"32px"} />
         </button>
-        <ul class="dropdown-menu">
+        <ul className="dropdown-menu">
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Profile
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Login
             </a>
           </li>

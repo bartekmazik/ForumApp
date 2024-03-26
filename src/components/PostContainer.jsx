@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Post from "../components/Post.jsx";
 
-function PostContainer(prop) {
-  const [posts, setPosts] = useState([]);
-  const searchWord = prop.searchWord;
+function PostContainer(props) {
+  const { searchWord, posts, setPosts, sortOption } = props;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,20 +41,51 @@ function PostContainer(prop) {
 
   const renderPosts = () => {
     return posts
-      .filter((post) =>
-        post.title.toLowerCase().includes(searchWord.toLowerCase())
+      .filter((post) => {
+        if (!searchWord) return true;
+        return (
+          post.title.toLowerCase().includes(searchWord.toLowerCase()) ||
+          post.body.toLowerCase().includes(searchWord.toLowerCase())
+        );
+      })
+      .sort((a, b) => {
+        if (sortOption === "min") {
+          return a.body.length - b.body.length;
+        } else if (sortOption === "max") {
+          return b.body.length - a.body.length;
+        }
+      })
+      .map((post) => {
+        const { title, body } = post;
+        const titleParts = highlightSearchWord(title, searchWord);
+        const bodyParts = highlightSearchWord(body, searchWord);
+
+        return (
+          <Post
+            key={post.id}
+            id={post.id}
+            title={titleParts}
+            body={bodyParts}
+            author={post.user ? post.user.name : "Unknown"}
+            photoUrl={post.photo ? post.photo.url : ""}
+            comments={post.comments}
+          />
+        );
+      });
+  };
+
+  // Function to highlight search word within text
+  const highlightSearchWord = (text, searchWord) => {
+    const parts = text.split(new RegExp(`(${searchWord})`, "gi"));
+    return parts.map((part, index) =>
+      part.toLowerCase() === searchWord.toLowerCase() ? (
+        <span key={index} className="text-white bg-dark">
+          {part}
+        </span>
+      ) : (
+        part
       )
-      .map((post) => (
-        <Post
-          key={post.id}
-          id={post.id}
-          title={post.title}
-          body={post.body}
-          author={post.user ? post.user.name : "Unknown"}
-          photoUrl={post.photo ? post.photo.url : ""}
-          comments={post.comments}
-        />
-      ));
+    );
   };
 
   return <div className="w-50 container mt-5">{renderPosts()}</div>;
