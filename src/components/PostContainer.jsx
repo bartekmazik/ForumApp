@@ -88,7 +88,7 @@ function PostContainer(props) {
     );
   };
 
-  return <div className="w-50 container mt-5">{renderPosts()}</div>;
+  return <div className="w-50 container mt-5  ">{renderPosts()}</div>;
 }
 
 export default PostContainer;

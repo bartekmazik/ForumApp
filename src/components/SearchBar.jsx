@@ -21,7 +21,7 @@ function SearchBar(prop) {
       <form className=" d-flex justify-content-center m-5 p-1">
         <input
           placeholder="Search"
-          className=" rounded"
+          className="w-50 rounded"
           onChange={handleChange}
         ></input>
         <div className="dropdown">

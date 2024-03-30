@@ -32,15 +32,7 @@ function Navbar() {
   return (
     <>
       <div className="d-flex justify-content-between px-2 align-items-center w-10 bg-secondary">
-        <img
-          src="src/assets/logo.svg"
-          height={"32px"}
-          className="mx-2"
-          onClick={() => {
-            console.log("im logo");
-          }}
-          //fill={"transparent"}
-        />
+        <h4>Forum App</h4>
         <ProfileDropdown />
       </div>
     </>

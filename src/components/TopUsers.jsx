@@ -17,7 +17,7 @@ function TopUsers(props) {
   );
 
   return (
-    <div className="d-inline-block w-25 p-2 h-50 mt-5 border border-primary rounded mx-1">
+    <div className="d-inline-block w-25 p-2 h-50 mt-5 border border-primary rounded mx-1 bg-light">
       Top contributors
       <ul className="list-unstyled m-3">
         {sortedUsers.map((userName) => (

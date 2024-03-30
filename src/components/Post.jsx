@@ -2,7 +2,7 @@ import React from "react";
 
 function Post({ id, title, body, author, photoUrl, comments }) {
   return (
-    <div className="border border-primary  rounded p-4">
+    <div className="border border-primary mb-2 rounded p-4 bg-light">
       <div className="d-flex justify-content-start align-items-center">
         <img src="src/assets/avatar.svg" width={"32px"} height={"32px"} />
         <p className="m-2">{author}</p>
