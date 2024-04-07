@@ -18,10 +18,15 @@ function SearchBar(prop) {
 
   return (
     <div className="w-50 container ">
-      <form className=" d-flex justify-content-center m-5 p-1">
+      <form className=" d-flex justify-content-center m-5 p-1 align-items-center">
+        <div>
+          <button className="w-50 bg-primary mx-3 rounded-circle text-light">
+            +
+          </button>
+        </div>
         <input
           placeholder="Search"
-          className="w-50 rounded"
+          className="w-50 rounded "
           onChange={handleChange}
         ></input>
         <div className="dropdown">
