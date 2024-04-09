@@ -80,6 +80,11 @@ function PostContainer(props) {
 
   // Function to highlight search word within text
   const highlightSearchWord = (text, searchWord) => {
+    // whitespace exception
+    if (searchWord.trim() === "") {
+      return [text]; 
+    }
+  
     const parts = text.split(new RegExp(`(${searchWord})`, "gi"));
     return parts.map((part, index) =>
       part.toLowerCase() === searchWord.toLowerCase() ? (
