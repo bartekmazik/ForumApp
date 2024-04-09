@@ -12,3 +12,7 @@ p {
 div {
   font-size: 1vw;
 }
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

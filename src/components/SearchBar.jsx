@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SearchBar(prop) {
-  const searchChange = prop.searchChange;
-  const sortChange = prop.sortChange;
+function SearchBar(props) {
+  const { searchChange, sortChange, filterChange, filterValues } = props;
+
+  const [minLength, setMinLength] = useState("");
+  const [maxLength, setMaxLength] = useState("");
+
   const handleChange = (event) => {
     searchChange(event.target.value);
   };
+
   const setMax = () => {
     sortChange("max");
   };
+
   const setMin = () => {
     sortChange("min");
   };
+
   const setDefault = () => {
     sortChange("");
   };
 
+  const handleApplyFilters = () => {
+    filterChange({
+      min: minLength,
+      max: maxLength,
+    });
+  };
+
   return (
-    <div className="w-50 container ">
-      <form className=" d-flex justify-content-center m-5 p-1 align-items-center">
+    <div className="w-50 container">
+      <form className="d-flex justify-content-center m-5 p-1 align-items-center">
         <div>
           <button className="w-50 bg-primary mx-3 rounded-circle text-light">
             +
@@ -26,9 +39,9 @@ function SearchBar(prop) {
         </div>
         <input
           placeholder="Search"
-          className="w-50 rounded "
+          className="w-50 rounded"
           onChange={handleChange}
-        ></input>
+        />
         <div className="dropdown">
           <button
             className="btn btn-primary dropdown-toggle border border-secondary"
@@ -66,10 +79,29 @@ function SearchBar(prop) {
             Filter
           </button>
           <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
+            <li className="mx-1">
+              <label className="form-label">Range of words</label>
+              <div className="d-flex justify-content-around">
+                <span>From</span>
+                <input
+                  type="number"
+                  value={minLength}
+                  onChange={(e) => setMinLength(e.target.value)}
+                />
+                <span>To</span>
+                <input
+                  type="number"
+                  value={maxLength}
+                  onChange={(e) => setMaxLength(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={handleApplyFilters}
+                >
+                  Apply
+                </button>
+              </div>
             </li>
           </ul>
         </div>

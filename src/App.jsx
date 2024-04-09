@@ -12,12 +12,17 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [sortOption, setSortOption] = useState("");
   const [isChatActive, setIsChatActive] = useState(true);
+  const [filterValues, setFilterValues] = useState({ min: 0, max: 1000 });
 
   return (
     <>
       <Navbar />
-      {console.log(sortOption)}
-      <SearchBar searchChange={setSearch} sortChange={setSortOption} />
+      <SearchBar
+        searchChange={setSearch}
+        sortChange={setSortOption}
+        filterChange={setFilterValues}
+        filterValues={filterValues}
+      />
       <div className="d-flex justify-content-between">
         <OnlineUsers posts={posts} setIsChatActive={setIsChatActive} />
         {isChatActive ? (
@@ -26,6 +31,7 @@ function App() {
             posts={posts}
             setPosts={setPosts}
             sortOption={sortOption}
+            filterValues={filterValues}
           />
         ) : (
           <Chat setIsChatActive={setIsChatActive} />

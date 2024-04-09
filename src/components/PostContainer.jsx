@@ -3,7 +3,7 @@ import axios from "axios";
 import Post from "../components/Post.jsx";
 
 function PostContainer(props) {
-  const { searchWord, posts, setPosts, sortOption } = props;
+  const { searchWord, posts, setPosts, sortOption, filterValues } = props;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +48,11 @@ function PostContainer(props) {
           post.body.toLowerCase().includes(searchWord.toLowerCase())
         );
       })
+      .filter(
+        (post) =>
+          post.body.length < filterValues.max &&
+          post.body.length > filterValues.min
+      )
       .sort((a, b) => {
         if (sortOption === "min") {
           return a.body.length - b.body.length;
