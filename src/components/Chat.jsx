@@ -26,7 +26,7 @@ function Chat(props) {
     try {
       const completion = await openai.chat.completions.create({
         messages: [
-          { role: "system", content: "You are talking to a friend." },
+          { role: "system", content: "You are talking to a friend. " },
           { role: "user", content: input },
         ],
         model: "gpt-3.5-turbo",

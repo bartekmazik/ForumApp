@@ -35,7 +35,6 @@ function PostContainer(props) {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
 
