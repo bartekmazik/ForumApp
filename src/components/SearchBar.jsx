@@ -3,8 +3,12 @@ import React, { useState } from "react";
 function SearchBar(props) {
   const { searchChange, sortChange, filterChange, filterValues } = props;
 
-  const [minLength, setMinLength] = useState("");
-  const [maxLength, setMaxLength] = useState("");
+  
+  const defaultMinLength = 1;
+  const defaultMaxLength = 1000;
+
+  const [minLength, setMinLength] = useState(""); 
+  const [maxLength, setMaxLength] = useState(""); 
 
   const handleChange = (event) => {
     searchChange(event.target.value);
@@ -23,9 +27,13 @@ function SearchBar(props) {
   };
 
   const handleApplyFilters = () => {
+    // default if label is empty
+    const min = minLength === "" ? defaultMinLength : minLength;
+    const max = maxLength === "" ? defaultMaxLength : maxLength;
+
     filterChange({
-      min: minLength,
-      max: maxLength,
+      min,
+      max,
     });
   };
 
