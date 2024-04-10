@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 
-function SearchBar(props) {
-  const { searchChange, sortChange, filterChange, filterValues } = props;
-
-  
+function SearchBar({ searchChange, sortChange, filterChange }) {
   const defaultMinLength = 1;
   const defaultMaxLength = 1000;
 
-  const [minLength, setMinLength] = useState(""); 
-  const [maxLength, setMaxLength] = useState(""); 
+  const [minLength, setMinLength] = useState(defaultMinLength);
+  const [maxLength, setMaxLength] = useState(defaultMaxLength);
 
   const handleChange = (event) => {
     searchChange(event.target.value);
@@ -27,9 +24,8 @@ function SearchBar(props) {
   };
 
   const handleApplyFilters = () => {
-    // default if label is empty
-    const min = minLength === "" ? defaultMinLength : minLength;
-    const max = maxLength === "" ? defaultMaxLength : maxLength;
+    const min = minLength >= 0 ? minLength : defaultMinLength;
+    const max = maxLength >= 0 ? maxLength : defaultMaxLength;
 
     filterChange({
       min,
@@ -88,23 +84,34 @@ function SearchBar(props) {
           </button>
           <ul className="dropdown-menu">
             <li className="mx-1">
-              <label className="form-label">Range of words</label>
+              <label className="form-label" htmlFor="fromInput">
+                From
+              </label>
               <div className="d-flex justify-content-around">
-                <span>From</span>
                 <input
+                  id="fromInput"
                   type="number"
                   value={minLength}
-                  onChange={(e) => setMinLength(e.target.value)}
+                  min="0"
+                  onChange={(e) => setMinLength(parseInt(e.target.value))}
                 />
-                <span>To</span>
+              </div>
+            </li>
+            <li className="mx-1">
+              <label className="form-label" htmlFor="toInput">
+                To
+              </label>
+              <div className="d-flex justify-content-around">
                 <input
+                  id="toInput"
                   type="number"
                   value={maxLength}
-                  onChange={(e) => setMaxLength(e.target.value)}
+                  min="0"
+                  onChange={(e) => setMaxLength(parseInt(e.target.value))}
                 />
                 <button
-                  type="button"
                   className="btn btn-primary"
+                  type="button"
                   onClick={handleApplyFilters}
                 >
                   Apply

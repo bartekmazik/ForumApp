@@ -15,14 +15,14 @@ function ProfileDropdown() {
         </button>
         <ul className="dropdown-menu">
           <li>
-            <div className="dropdown-item" href="#">
-              <Link to="/profile">Profile</Link>
+            <div className="dropdown-item">
+              <Link to="/profile" className="text-decoration-none text-dark">
+                Profile
+              </Link>
             </div>
           </li>
           <li>
-            <a className="dropdown-item" href="#">
-              Login
-            </a>
+            <a className="dropdown-item">Login</a>
           </li>
         </ul>
       </div>
@@ -34,7 +34,11 @@ function Navbar() {
   return (
     <>
       <div className="d-flex justify-content-between px-2 align-items-center w-10 bg-secondary">
-        <h4>Forum App</h4>
+        <h2>
+          <Link to="/" className="text-decoration-none text-light">
+            ForumApp
+          </Link>
+        </h2>
         <ProfileDropdown />
       </div>
     </>

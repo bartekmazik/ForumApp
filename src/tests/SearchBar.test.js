@@ -1,6 +1,8 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, toBeInTheDocument } from "@testing-library/react";
 import SearchBar from "../components/SearchBar.jsx";
+import { screen } from "@testing-library/dom";
+import "@testing-library/jest-dom";
 
 test("SearchBar renders correctly", () => {
   const { getByPlaceholderText } = render(<SearchBar />);
@@ -18,7 +20,7 @@ test("SearchBar sorts by most characters", () => {
 
 test("SearchBar filters by range of words", () => {
   const filterChangeMock = jest.fn();
-  const { getByText, getByLabelText, getByRole } = render(
+  const { getByLabelText, getByRole } = render(
     <SearchBar filterChange={filterChangeMock} />
   );
   const fromInput = getByLabelText("From");
@@ -29,5 +31,5 @@ test("SearchBar filters by range of words", () => {
   fireEvent.change(toInput, { target: { value: "6" } });
   fireEvent.click(applyButton);
 
-  expect(filterChangeMock).toHaveBeenCalledWith({ min: "3", max: "6" });
+  expect(filterChangeMock).toHaveBeenCalledWith({ min: 3, max: 6 });
 });
