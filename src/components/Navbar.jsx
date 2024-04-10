@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 function ProfileDropdown() {
   return (
     <>
@@ -13,9 +15,9 @@ function ProfileDropdown() {
         </button>
         <ul className="dropdown-menu">
           <li>
-            <a className="dropdown-item" href="#">
-              Profile
-            </a>
+            <div className="dropdown-item" href="#">
+              <Link to="/profile">Profile</Link>
+            </div>
           </li>
           <li>
             <a className="dropdown-item" href="#">
