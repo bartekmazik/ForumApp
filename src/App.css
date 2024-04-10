@@ -2,12 +2,19 @@
   max-width: 100vw;
   max-height: 100%;
   margin: 0 auto;
+  background-color: #373737;
 }
 h3 {
   font-size: 2vw;
+  font-style: italic;
+  color: white;
+}
+h4 {
+  color: aliceblue;
 }
 p {
   font-size: 1vw;
+  color: white;
 }
 div {
   font-size: 1vw;
@@ -15,4 +22,8 @@ div {
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.bg-Navbar-color {
+  background-color: #4C574E;
+  color: white;
 }

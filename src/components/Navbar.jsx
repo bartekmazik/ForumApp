@@ -31,7 +31,7 @@ function ProfileDropdown() {
 function Navbar() {
   return (
     <>
-      <div className="d-flex justify-content-between px-2 align-items-center w-10 bg-secondary">
+      <div className="d-flex justify-content-between px-2 align-items-center w-10 bg-Navbar-color">
         <h4>Forum App</h4>
         <ProfileDropdown />
       </div>

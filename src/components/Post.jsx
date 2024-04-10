@@ -2,7 +2,7 @@ import React from "react";
 
 function Post({ id, title, body, author, photoUrl, comments }) {
   return (
-    <div className="border border-primary mb-2 rounded p-4 bg-light">
+    <div className="border border-primary mb-2 rounded p-4 bg-Navbar-color">
       <div className="d-flex justify-content-start align-items-center">
         <img src="src/assets/avatar.svg" width={"32px"} height={"32px"} />
         <p className="m-2">{author}</p>
@@ -13,7 +13,8 @@ function Post({ id, title, body, author, photoUrl, comments }) {
         <img src={photoUrl} alt="Post" className="w-100 rounded-4 my-2" />
       )}
       <h4>Comments:</h4>
-      <ul className="list-unstyled">
+      
+      <ul className="list-unstyled rounded">
         {comments.map((comment) => (
           <li className="border border-primary my-2 p-2" key={comment.id}>
             <div className="fw-bold">{comment.email}</div>
