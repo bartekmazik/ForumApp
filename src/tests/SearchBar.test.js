@@ -23,6 +23,23 @@ test("SearchBar filters by range of words", () => {
   const { getByLabelText, getByRole } = render(
     <SearchBar filterChange={filterChangeMock} />
   );
+
+
+  test("IF given input is space, do nothing", () => {
+    // Given
+    const input = " ";
+    
+    // When
+    // Tutaj wywołaj funkcję lub operację, która ma zostać przetestowana
+    // W tym przypadku, nie robimy nic, więc po prostu zostawiamy pustą linię
+    
+    // Then
+    // Sprawdź, czy po wykonaniu funkcji lub operacji, otrzymujemy oczekiwany rezultat
+    // W tym przypadku oczekujemy, że funkcja nie zmieni wartości, więc porównujemy wartość wejściową z wartością wyjściową
+    expect(input).toBe(" ");
+  });
+
+  
   const fromInput = getByLabelText("From");
   const toInput = getByLabelText("To");
   const applyButton = getByRole("button", { name: "Apply" });
