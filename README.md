@@ -1,8 +1,12 @@
-# React + Vite
+ForumApp is an app built in React.js with Bootstrap.
+The main features are:
+- Displaying posts fetched from Jsonplaceholder API
+- Chatbot made with OpenAI API
+- Users statistics
+- Post filters and sorting options
+- Searchbar with highlighted posts keywords
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ForumApp is still under development, that's why we recommend using it on desktop.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  Attention!
+  To make chatbot working, you need to create ".env" file in root directory. It needs to contain VITE_OPENAI_API_KEY variable with OpenAI API user key. (example: VITE_OPENAI_API_KEY = "your key here!")
