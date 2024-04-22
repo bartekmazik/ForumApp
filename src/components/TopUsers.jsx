@@ -3,7 +3,6 @@ import React from "react";
 function TopUsers(props) {
   const { posts } = props;
 
-  // Counting posts for each user
   const userPostCounts = {};
 
   posts.forEach((post) => {
@@ -11,13 +10,12 @@ function TopUsers(props) {
     userPostCounts[userName] = (userPostCounts[userName] || 0) + 1;
   });
 
-  // Sorting users by post count in descending order
   const sortedUsers = Object.keys(userPostCounts).sort(
     (a, b) => userPostCounts[b] - userPostCounts[a]
   );
 
   return (
-    <div className="d-inline-block w-25 p-2 h-50 mt-5 border border-primary rounded mx-1 bg-light">
+    <div className="d-inline-block w-25 p-2 h-50 mt-5 border border-secondary rounded mx-1 bg-light">
       Top contributors
       <ul className="list-unstyled m-3">
         {sortedUsers.map((userName) => (

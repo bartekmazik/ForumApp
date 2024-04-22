@@ -3,7 +3,6 @@ import PostContainer from "../components/PostContainer.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import TopUsers from "../components/TopUsers.jsx";
 import OnlineUsers from "../components/OnlineUsers.jsx";
-import Chat from "../components/Chat.jsx";
 
 function HomePage() {
   const [search, setSearch] = useState("");
@@ -22,17 +21,13 @@ function HomePage() {
       />
       <div className="d-flex justify-content-between">
         <OnlineUsers posts={posts} setIsChatActive={setIsChatActive} />
-        {isChatActive ? (
-          <PostContainer
-            searchWord={search}
-            posts={posts}
-            setPosts={setPosts}
-            sortOption={sortOption}
-            filterValues={filterValues}
-          />
-        ) : (
-          <Chat setIsChatActive={setIsChatActive} />
-        )}
+        <PostContainer
+          searchWord={search}
+          posts={posts}
+          setPosts={setPosts}
+          sortOption={sortOption}
+          filterValues={filterValues}
+        />
         <TopUsers posts={posts} />
       </div>
     </>

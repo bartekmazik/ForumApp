@@ -82,9 +82,9 @@ function PostContainer(props) {
   const highlightSearchWord = (text, searchWord) => {
     // whitespace exception
     if (searchWord.trim() === "") {
-      return [text]; 
+      return [text];
     }
-  
+
     const parts = text.split(new RegExp(`(${searchWord})`, "gi"));
     return parts.map((part, index) =>
       part.toLowerCase() === searchWord.toLowerCase() ? (
@@ -97,7 +97,9 @@ function PostContainer(props) {
     );
   };
 
-  return <div className="w-50 container mt-5  ">{renderPosts()}</div>;
+  return (
+    <div className="w-50 container mt-5  border-secondary">{renderPosts()}</div>
+  );
 }
 
 export default PostContainer;

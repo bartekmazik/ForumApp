@@ -21,9 +21,6 @@ function ProfileDropdown() {
               </Link>
             </div>
           </li>
-          <li>
-            <a className="dropdown-item">Login</a>
-          </li>
         </ul>
       </div>
     </>

@@ -39,20 +39,20 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
 
   return (
     <div className="w-50 container">
-      <form className="d-flex justify-content-center m-5 p-1 align-items-center">
+      <form className="d-flex justify-content-center m-4  align-items-center">
         <div>
-          <button className="w-50 bg-primary mx-3 rounded-circle text-light">
+          <button className="w-50 bg-secondary mx-3 rounded-circle text-light">
             +
           </button>
         </div>
         <input
           placeholder="Search"
-          className="w-50 rounded"
+          className="w-50 my-3 rounded"
           onChange={handleChange}
         />
         <div className="dropdown">
           <button
-            className="btn btn-primary dropdown-toggle border border-secondary"
+            className="btn btn-light dropdown-toggle border border-secondary"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -79,7 +79,7 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
         </div>
         <div className="dropdown">
           <button
-            className="btn btn-primary dropdown-toggle border border-secondary"
+            className="btn btn-light dropdown-toggle border border-secondary"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -91,12 +91,13 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
               <label className="form-label" htmlFor="fromInput">
                 From
               </label>
-              <div className="d-flex justify-content-around">
+              <div>
                 <input
                   id="fromInput"
                   type="number"
                   value={minLength}
                   min="0"
+                  className="form-control"
                   onChange={(e) => setMinLength(parseInt(e.target.value))}
                 />
               </div>
@@ -111,16 +112,17 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
                   type="number"
                   value={maxLength}
                   min="0"
+                  className="form-control"
                   onChange={(e) => setMaxLength(parseInt(e.target.value))}
                 />
-                <button
-                  className="btn btn-primary"
-                  type="button"
-                  onClick={handleApplyFilters}
-                >
-                  Apply
-                </button>
               </div>
+              <button
+                className="btn btn-secondary mt-2"
+                type="button"
+                onClick={handleApplyFilters}
+              >
+                Apply
+              </button>
             </li>
           </ul>
         </div>

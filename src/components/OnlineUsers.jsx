@@ -3,18 +3,16 @@ import React from "react";
 function OnlineUsers(props) {
   const posts = props.posts;
   const setIsChatActive = props.setIsChatActive;
-  // Extracting unique user names from posts
   const uniqueUserNames = [
     ...new Set(posts.map((post) => (post.user ? post.user.name : "Unknown"))),
   ];
 
-  // Displaying the top 3 online users
   const topOnlineUsers = uniqueUserNames.slice(2, 5);
   const handleClick = () => {
     setIsChatActive(false);
   };
   return (
-    <div className="d-inline-block w-25 p-2 h-50 mt-5 border border-primary rounded mx-1 bg-light">
+    <div className="d-inline-block w-25 p-2 h-50 mt-5 border border-secondary rounded mx-1 bg-light">
       Online users
       <ul className="w-100 list-unstyled m-3 start-0">
         {topOnlineUsers.map((userName) => (

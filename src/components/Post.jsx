@@ -2,7 +2,7 @@ import React from "react";
 
 function Post({ id, title, body, author, photoUrl, comments }) {
   return (
-    <div className="border border-primary mb-2 rounded p-4 bg-light">
+    <div className="border border-secondary mb-2 rounded p-4 bg-light">
       <div className="d-flex justify-content-start align-items-center">
         <img src="src/assets/avatar.svg" width={"32px"} height={"32px"} />
         <p className="m-2">{author}</p>
@@ -15,7 +15,7 @@ function Post({ id, title, body, author, photoUrl, comments }) {
       <h4>Comments:</h4>
       <ul className="list-unstyled">
         {comments.map((comment) => (
-          <li className="border border-primary my-2 p-2" key={comment.id}>
+          <li className="border border-secondary my-2 p-2" key={comment.id}>
             <div className="fw-bold">{comment.email}</div>
             <div>{comment.body}</div>
           </li>
