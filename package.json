@@ -10,9 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "preinstall": "npx npm-force-resolutions",
-    "test": "jest",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "test": "jest"
   },
   "overrides": {
     "react-error-overlay": "^6.0.9"
@@ -46,7 +44,6 @@
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "gh-pages": "^6.1.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "react-error-overlay": "^6.0.9",
