@@ -41,20 +41,20 @@ function Chat(props) {
   }
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevents the form from submitting and refreshing the page
+    event.preventDefault();
     const userMessage = inputValue.trim();
-    if (userMessage === "") return; // Don't send empty messages
+    if (userMessage === "") return;
 
     setMessages([
       ...messages,
       { role: "user", content: userMessage },
       { role: "assistant", content: await getAssistantResponse(userMessage) },
     ]);
-    setInputValue(""); // Clear the input field after submitting
+    setInputValue("");
   };
 
   const handleChange = (event) => {
-    setInputValue(event.target.value); // Update the input value as it changes
+    setInputValue(event.target.value);
   };
 
   return (
@@ -94,7 +94,7 @@ function Chat(props) {
           className="h-75 rounded"
           placeholder="Type message here"
         ></input>
-        <button type="submit">Send</button> {/* Changed input type to button */}
+        <button type="submit">Send</button>
       </form>
     </div>
   );

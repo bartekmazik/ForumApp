@@ -50,3 +50,56 @@ test("SearchBar filters by range of words", () => {
 
   expect(filterChangeMock).toHaveBeenCalledWith({ min: 3, max: 6 });
 });
+test("SearchBar input value is not a space", () => {
+  const setSearchMock = jest.fn();
+  const { getByPlaceholderText } = render(
+    <SearchBar searchChange={setSearchMock} />
+  );
+  const searchInput = getByPlaceholderText("Search");
+  fireEvent.change(searchInput, { target: { value: " " } });
+  expect(searchInput.value.trim()).not.toBe(" ");
+});
+
+test("SearchBar max filter value is greater than min value", () => {
+  const setSortOptionMock = jest.fn();
+  const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
+  const { getByLabelText, getByRole } = render(
+    <SearchBar sortChange={setSortOptionMock} />
+  );
+  const fromInput = getByLabelText("From");
+  const toInput = getByLabelText("To");
+  fireEvent.change(fromInput, { target: { value: "5" } });
+  fireEvent.change(toInput, { target: { value: "3" } });
+  const applyButton = getByRole("button", { name: "Apply" });
+  fireEvent.click(applyButton);
+  expect(alertMock).toHaveBeenCalledWith(
+    "Max value must be greater than or equal to min value"
+  );
+});
+
+test("SearchBar filter value is a number", () => {
+  const setFilterValuesMock = jest.fn();
+  const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
+  const { getByLabelText, getByRole } = render(
+    <SearchBar filterChange={setFilterValuesMock} />
+  );
+  const fromInput = getByLabelText("From");
+  fireEvent.change(fromInput, { target: { value: "abc" } });
+  const applyButton = getByRole("button", { name: "Apply" });
+  fireEvent.click(applyButton);
+  expect(alertMock).toHaveBeenCalledWith("Filter value must be a number");
+});
+test("SearchBar filter value allows negative values", () => {
+  const setFilterValuesMock = jest.fn();
+  const alertMock = jest.spyOn(window, "alert").mockImplementation(() => {});
+  const { getByLabelText, getByRole } = render(
+    <SearchBar filterChange={setFilterValuesMock} />
+  );
+  const fromInput = getByLabelText("From");
+  fireEvent.change(fromInput, { target: { value: "-5" } });
+  const applyButton = getByRole("button", { name: "Apply" });
+  fireEvent.click(applyButton);
+  expect(alertMock).toHaveBeenCalledWith(
+    "Filter value must be greater than or equal to 0"
+  );
+});

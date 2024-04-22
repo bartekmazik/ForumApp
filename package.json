@@ -2,6 +2,7 @@
   "name": "forumapp",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://bartekmazik.github.io/ForumApp",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +10,9 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "preinstall": "npx npm-force-resolutions",
-    "test": "jest"
+    "test": "jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "overrides": {
     "react-error-overlay": "^6.0.9"
@@ -23,6 +26,7 @@
     "babel-jest": "^29.7.0",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "flowbite-react": "^0.7.5",
     "openai": "^4.29.2",
     "react": "^18.2.0",

@@ -27,10 +27,14 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
     const min = minLength >= 0 ? minLength : defaultMinLength;
     const max = maxLength >= 0 ? maxLength : defaultMaxLength;
 
-    filterChange({
-      min,
-      max,
-    });
+    if (min <= max) {
+      filterChange({
+        min,
+        max,
+      });
+    } else {
+      alert("Max value must be greater than or equal to min value");
+    }
   };
 
   return (

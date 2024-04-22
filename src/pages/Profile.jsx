@@ -3,7 +3,7 @@ import React from "react";
 function Profile() {
   return (
     <div className=" h-50 d-flex justify-content-center align-items-center">
-      <h1>GIGA KUTAS</h1>
+      <h1>Profile</h1>
     </div>
   );
 }
