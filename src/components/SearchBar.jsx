@@ -6,6 +6,7 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
 
   const [minLength, setMinLength] = useState(defaultMinLength);
   const [maxLength, setMaxLength] = useState(defaultMaxLength);
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     searchChange(event.target.value);
@@ -32,8 +33,9 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
         min,
         max,
       });
+      setError("");
     } else {
-      alert("Max value must be greater than or equal to min value");
+      setError("Max value must be greater than or equal to min value");
     }
   };
 
@@ -121,6 +123,7 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
               >
                 Apply
               </button>
+              {error && <p className="text-danger mt-2">{error}</p>}
             </li>
           </ul>
         </div>
