@@ -38,16 +38,14 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
   };
 
   return (
-    <div className="w-50 container">
-      <form className="d-flex justify-content-center m-4  align-items-center">
+    <div className="container">
+      <form className="d-flex justify-content-center m-4 align-items-center">
         <div>
-          <button className="w-50 bg-secondary mx-3 rounded-circle text-light">
-            +
-          </button>
+          <button className="btn btn-secondary mx-3 rounded-circle text-light">+</button>
         </div>
         <input
           placeholder="Search"
-          className="w-50 my-3 rounded"
+          className="form-control my-3"
           onChange={handleChange}
         />
         <div className="dropdown">
@@ -61,19 +59,19 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
           </button>
           <ul className="dropdown-menu">
             <li>
-              <a className="dropdown-item" role="button" onClick={setMax}>
+              <button className="dropdown-item" onClick={setMax}>
                 By most characters
-              </a>
+              </button>
             </li>
             <li>
-              <a className="dropdown-item" role="button" onClick={setMin}>
+              <button className="dropdown-item" onClick={setMin}>
                 By least characters
-              </a>
+              </button>
             </li>
             <li>
-              <a className="dropdown-item" role="button" onClick={setDefault}>
+              <button className="dropdown-item" onClick={setDefault}>
                 Default
-              </a>
+              </button>
             </li>
           </ul>
         </div>

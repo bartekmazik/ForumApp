@@ -98,7 +98,7 @@ function PostContainer(props) {
   };
 
   return (
-    <div className="w-50 container mt-5  border-secondary">{renderPosts()}</div>
+    <div className="w-75  container mt-5 border-secondary">{renderPosts()}</div>
   );
 }
 

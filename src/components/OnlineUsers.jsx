@@ -11,26 +11,30 @@ function OnlineUsers(props) {
   const handleClick = () => {
     setIsChatActive(false);
   };
+
   return (
-    <div className="d-inline-block w-25 p-2 h-50 mt-5 border border-secondary rounded mx-1 bg-light">
-      Online users
-      <ul className="w-100 list-unstyled m-3 start-0">
+    <div className="d-none d-md-inline-block p-2 mt-5 border border-secondary rounded mx-1 bg-light">
+      <h5 className="mb-3 fs-6">Online users</h5>
+      <ul className="list-unstyled">
         {topOnlineUsers.map((userName) => (
-          <li
-            key={userName}
-            className="d-flex w-100 justify-content-start align-items-center"
-          >
+          <li key={userName} className="d-flex align-items-center mb-2">
             <div
-              className="rounded-circle "
-              style={{ width: "0.5vw", height: "0.5vw", background: "#008000" }}
+              className="rounded-circle me-2"
+              style={{ width: "10px", height: "10px", background: "#008000" }}
             ></div>
-            <strong className="mx-1">{userName}</strong>
-            <a role="button" onClick={handleClick}>
+            <strong className="me-2 fs-6">{userName}</strong>
+            <a
+              href="#"
+              className="ms-auto"
+              onClick={handleClick}
+              style={{ textDecoration: "none" }}
+            >
               <img
                 src="src/assets/chat.svg"
                 className="img-fluid"
-                style={{ width: "1vw" }}
-              ></img>
+                style={{ width: "20px" }}
+                alt="Chat"
+              />
             </a>
           </li>
         ))}
