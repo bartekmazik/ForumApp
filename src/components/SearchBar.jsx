@@ -8,6 +8,7 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
   const [maxLength, setMaxLength] = useState(defaultMaxLength);
   const [error, setError] = useState("");
 
+  
   const handleChange = (event) => {
     searchChange(event.target.value);
   };
@@ -35,9 +36,13 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
       });
       setError("");
     } else {
-      setError("Max value must be greater than or equal to min value");
+      const errorMessage = "Max value must be greater than or equal to min value";
+      console.error(errorMessage);
+      setError(errorMessage);
     }
   };
+
+  
 
   return (
     <div className="container">
@@ -124,6 +129,29 @@ function SearchBar({ searchChange, sortChange, filterChange }) {
                 Apply
               </button>
               {error && <p className="text-danger mt-2">{error}</p>}
+            </li>
+          </ul>
+        </div>
+
+        {/*Dropdown for maximum posts per page */}
+        <div className="dropdown">
+          <button
+            className="btn btn-light dropdown-toggle border border-secondary"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Max Per Page
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <button className="dropdown-item" onClick={() => handleMaxPerPageChange(5)}>5</button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleMaxPerPageChange(10)}>10</button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={() => handleMaxPerPageChange(15)}>15</button>
             </li>
           </ul>
         </div>

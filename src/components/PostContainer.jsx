@@ -3,7 +3,10 @@ import axios from "axios";
 import Post from "../components/Post.jsx";
 
 function PostContainer(props) {
-  const { searchWord, posts, setPosts, sortOption, filterValues } = props;
+  const { searchWord, sortOption, filterValues } = props;
+  const [posts, setPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const maxPerPage = 5; // Default max per page
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +42,9 @@ function PostContainer(props) {
   }, []);
 
   const renderPosts = () => {
-    return posts
+    const indexOfLastPost = currentPage * maxPerPage;
+    const indexOfFirstPost = indexOfLastPost - maxPerPage;
+    const currentPosts = posts
       .filter((post) => {
         if (!searchWord) return true;
         return (
@@ -59,6 +64,7 @@ function PostContainer(props) {
           return b.body.length - a.body.length;
         }
       })
+      .slice(indexOfFirstPost, indexOfLastPost)
       .map((post) => {
         const { title, body } = post;
         const titleParts = highlightSearchWord(title, searchWord);
@@ -76,6 +82,8 @@ function PostContainer(props) {
           />
         );
       });
+
+    return currentPosts;
   };
 
   // Function to highlight search word within text
@@ -97,8 +105,22 @@ function PostContainer(props) {
     );
   };
 
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
-    <div className="w-75  container mt-5 border-secondary">{renderPosts()}</div>
+    <div className="w-75 container mt-5 border-secondary">
+      {renderPosts()}
+      {/* Pagination */}
+      <ul className="pagination">
+        {Array.from({ length: Math.ceil(posts.length / maxPerPage) }).map((_, index) => (
+          <li key={index} className="page-item">
+            <button onClick={() => paginate(index + 1)} className="page-link">
+              {index + 1}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
