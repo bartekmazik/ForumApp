@@ -10,4 +10,4 @@ class WebsiteUser(HttpUser):
     def view_homepage(self):
         # Wykonanie żądania GET do strony głównej serwisu.
         # To zadanie symuluje wejście użytkownika na stronę główną.
-        self.client.get("http://localhost:5173/?")
+        self.client.get("/")
