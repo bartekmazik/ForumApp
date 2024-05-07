@@ -112,13 +112,15 @@ function PostContainer(props) {
       {renderPosts()}
       {/* Pagination */}
       <ul className="pagination">
-        {Array.from({ length: Math.ceil(posts.length / maxPerPage) }).map((_, index) => (
-          <li key={index} className="page-item">
-            <button onClick={() => paginate(index + 1)} className="page-link">
-              {index + 1}
-            </button>
-          </li>
-        ))}
+        {Array.from({ length: Math.ceil(posts.length / maxPerPage) }).map(
+          (_, index) => (
+            <li key={index} className="page-item">
+              <button onClick={() => paginate(index + 1)} className="page-link">
+                {index + 1}
+              </button>
+            </li>
+          )
+        )}
       </ul>
     </div>
   );
