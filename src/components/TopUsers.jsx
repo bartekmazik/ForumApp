@@ -17,7 +17,7 @@ function TopUsers(props) {
   return (
     <div className="d-inline-block w-25 p-2 h-50 mt-5 border border-secondary rounded mx-1 bg-light d-none d-md-block">
       Top contributors
-      <ul className="list-unstyled m-3">
+      <ul className="list-unstyled m-1">
         {sortedUsers.map((userName) => (
           <li key={userName}>
             <strong>{userName}</strong>: {userPostCounts[userName]} posts
