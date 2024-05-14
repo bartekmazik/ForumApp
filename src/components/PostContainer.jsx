@@ -4,7 +4,8 @@ import Post from "../components/Post.jsx";
 
 function PostContainer(props) {
   const { searchWord, sortOption, filterValues } = props;
-  const [posts, setPosts] = useState([]);
+  const setPosts = props.setPosts;
+  const posts = props.posts;
   const [currentPage, setCurrentPage] = useState(1);
   const maxPerPage = 5; // Default max per page
 
@@ -108,7 +109,7 @@ function PostContainer(props) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="w-75 container mt-5 border-secondary">
+    <div className="w-50 container mt-5 border-secondary">
       {renderPosts()}
       {/* Pagination */}
       <ul className="pagination">

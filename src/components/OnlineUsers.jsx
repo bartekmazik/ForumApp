@@ -3,17 +3,24 @@ import React from "react";
 function OnlineUsers(props) {
   const posts = props.posts;
   const setIsChatActive = props.setIsChatActive;
+  function onlyUnique(value, index, array) {
+    return array.indexOf(value) === index;
+  }
   const uniqueUserNames = [
-    ...new Set(posts.map((post) => (post.user ? post.user.name : "Unknown"))),
+    ...new Set(
+      posts
+        .filter(onlyUnique)
+        .map((post) => (post.user ? post.user.name : "Unknown"))
+    ),
   ];
 
-  const topOnlineUsers = uniqueUserNames.slice(2, 5);
+  const topOnlineUsers = uniqueUserNames.slice(1, 6);
   const handleClick = () => {
     setIsChatActive(false);
   };
 
   return (
-    <div className="d-none d-md-inline-block p-2 mt-5 border border-secondary rounded mx-1 bg-light">
+    <div className="d-none d-md-inline-block w-25 p-2 mt-5 border border-secondary rounded mx-1 bg-light">
       <h5 className="mb-3 fs-6">Online users</h5>
       <ul className="list-unstyled">
         {topOnlineUsers.map((userName) => (
