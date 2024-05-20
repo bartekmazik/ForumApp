@@ -109,10 +109,10 @@ function PostContainer(props) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="w-50 container mt-5 border-secondary">
+    <div className="md-w-50  container mt-5 border-secondary">
       {renderPosts()}
       {/* Pagination */}
-      <ul className="pagination">
+      <ul className="pagination pagination-sm justify-content-center">
         {Array.from({ length: Math.ceil(posts.length / maxPerPage) }).map(
           (_, index) => (
             <li key={index} className="page-item">

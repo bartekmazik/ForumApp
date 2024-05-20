@@ -11,11 +11,16 @@ function ProfileDropdown() {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <img src="src/assets/avatar.svg" width={"32px"} height={"32px"} alt="Avatar" />
+          <img
+            src="src/assets/avatar.svg"
+            width={"32px"}
+            height={"32px"}
+            alt="Avatar"
+          />
         </button>
-        <ul className="dropdown-menu">
+        <ul className="dropdown-menu dropdown-menu-end">
           <li>
-            <div className="dropdown-item">
+            <div className="dropdown-item ">
               <Link to="/profile" className="text-decoration-none text-dark">
                 Profile
               </Link>
@@ -35,18 +40,8 @@ function Navbar() {
           <Link to="/" className="navbar-brand">
             ForumApp
           </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+          <div className=" justify-content-end" id="navbarNav">
             <ProfileDropdown />
           </div>
         </div>

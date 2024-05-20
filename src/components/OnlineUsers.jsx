@@ -20,7 +20,7 @@ function OnlineUsers(props) {
   };
 
   return (
-    <div className="d-none d-md-inline-block w-25 p-2 mt-5 border border-secondary rounded mx-1 bg-light">
+    <div className="d-none d-md-inline-block w-25 h-25 p-2 mt-5 border border-secondary rounded mx-1 bg-light">
       <h5 className="mb-3 fs-6">Online users</h5>
       <ul className="list-unstyled">
         {topOnlineUsers.map((userName) => (
