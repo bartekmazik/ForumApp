@@ -31,8 +31,17 @@ function ProfileDropdown() {
     </>
   );
 }
-
-function Navbar() {
+function LoginButton() {
+  return (
+    <>
+      <Link to="/login" className="btn btn-light">
+        Login
+      </Link>
+    </>
+  );
+}
+function Navbar(props) {
+  const isLogged = props.isLogged;
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
@@ -40,10 +49,7 @@ function Navbar() {
           <Link to="/" className="navbar-brand">
             ForumApp
           </Link>
-
-          <div className=" justify-content-end" id="navbarNav">
-            <ProfileDropdown />
-          </div>
+          {isLogged ? <ProfileDropdown /> : <LoginButton />}
         </div>
       </nav>
     </>
